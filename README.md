@@ -20,6 +20,8 @@ gopa> 20*a
 '200'
 gopa> require
 'function github.com/dop251/goja_nodejs/require.(*RequireModule).require-fm() { [native code] }'
+gopa> fmt.Sprintf("a:%d\n",100)
+gopa> 'a:100\n'
 gopa> .exit
 ```
 All [goja](https://github.com/dop251/goja) commands can be evaluated, since this is just a stupid wrapper(CLI frontend) around the powerful [goja](https://github.com/dop251/goja) engine.
