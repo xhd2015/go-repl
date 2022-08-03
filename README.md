@@ -12,17 +12,17 @@ node goja_repl.js
 Output:
 ```bash
 $ node goja_repl.js 
-gopa> 1+1
+goja> 1+1
 '2'
-gopa> a=10
+goja> a=10
 '10'
-gopa> 20*a
+goja> 20*a
 '200'
-gopa> require
+goja> require
 'function github.com/dop251/goja_nodejs/require.(*RequireModule).require-fm() { [native code] }'
-gopa> fmt.Sprintf("a:%d\n",100)
-gopa> 'a:100\n'
-gopa> .exit
+goja> fmt.Sprintf("a:%d\n",100)
+goja> 'a:100\n'
+goja> .exit
 ```
 All [goja](https://github.com/dop251/goja) commands can be evaluated, since this is just a stupid wrapper(CLI frontend) around the powerful [goja](https://github.com/dop251/goja) engine.
 

@@ -18,15 +18,13 @@ func main() {
 	registry.Enable(runtime)
 
 	fmtObj := runtime.NewObject()
-	fmtProxy := runtime.NewProxy(fmtObj, &goja.ProxyTrapConfig{
-		Get: func(target *goja.Object, property string, receiver goja.Value) (value goja.Value) {
-			if property == "Sprintf" {
-				return runtime.ToValue(fmt.Sprintf)
-			}
-			return fmtObj.Get(property)
-		},
-	})
-	runtime.Set("fmt", fmtProxy)
+	fmtObj.Set("Sprintf", fmt.Sprintf)
+	runtime.Set("fmt", fmtObj)
+
+	gojaPkg := runtime.NewObject()
+	gojaPkg.Set("Compile", goja.Compile)
+	gojaPkg.Set("MustCompile", goja.MustCompile)
+	runtime.Set("goja", gojaPkg)
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
